@@ -23,13 +23,13 @@
 module SevenSegDecWithEn( input [1:0] en, input [3:0] num, output reg [6:0] segments, output reg [3:0] anode_active); 
 
   always @ (*) begin
-        case(en)
+    case(en) // en selects which digit on the seven segment display to use for the current input by selecting the anodes.
             0: anode_active = 4'b0111;
             1: anode_active = 4'b1111;
             2: anode_active = 4'b1111;
             3: anode_active = 4'b1110;
         endcase
-        case(num)
+    case(num) // The correct bit values for each number is selected from this case. Note: the numbers past 9 are dont care values for our code however they are still here for when we were testing.
             0: segments = 7'b0000001;
             1: segments = 7'b1001111;
             2: segments = 7'b0010010;
