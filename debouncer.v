@@ -19,7 +19,7 @@
 // 
 //////////////////////////////////////////////////////////////////////////////////
 
-module debouncer(input clk, rst, in, output out);
+module debouncer(input clk, rst, in, output out); // A standard debouncer circuit to avoid unneeded inputs
 reg q1,q2,q3;
 always@(posedge clk, posedge rst) begin
 if(rst == 1'b1) begin
